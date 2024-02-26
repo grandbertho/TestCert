@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Certificate Generator</h1>
+    <form action="{% url 'generate_pdf' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Student's Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br/>
+        <button type="submit">Generate PDF</button>
+    </form>
+</body>
+</html>

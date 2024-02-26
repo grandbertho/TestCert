@@ -28,6 +28,7 @@ def generate_certificate(name):
     p.drawString((landscape(letter)[0] - name_width) / 2, 320, name_text)
 
     # Add current date
+    p.setFont("Helvetica", 16)
     months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
     today = datetime.now()
     day = today.day

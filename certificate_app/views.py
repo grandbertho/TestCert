@@ -17,7 +17,7 @@ def generate_certificate(name):
 
     # Create a PDF canvas with landscape layout
     p = canvas.Canvas(response, pagesize=landscape(letter))
-    pdfmetrics.registerFont(TTFont('Sacramento', 'certificate_app\images\QwitcherGrypen-Bold.ttf'))
+    pdfmetrics.registerFont(TTFont('Sacramento', 'certificate_app/images/QwitcherGrypen-Bold.ttf'))
     # Add the image
     image_path = "certificate_app/images/certificatehub.png"  # Update with your image path
     p.drawImage(ImageReader(image_path), 0, 0, width=landscape(letter)[0], height=landscape(letter)[1])

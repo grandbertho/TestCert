@@ -4,6 +4,8 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import Color
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase import pdfmetrics
 from datetime import datetime
 
 def generate_certificate(name):
@@ -15,22 +17,22 @@ def generate_certificate(name):
 
     # Create a PDF canvas with landscape layout
     p = canvas.Canvas(response, pagesize=landscape(letter))
-
+    pdfmetrics.registerFont(TTFont('Sacramento', 'certificate_app\images\QwitcherGrypen-Bold.ttf'))
     # Add the image
     image_path = "certificate_app/images/certificatehub.png"  # Update with your image path
     p.drawImage(ImageReader(image_path), 0, 0, width=landscape(letter)[0], height=landscape(letter)[1])
 
     # Set font and font size for the name and date
-    p.setFont("Times-Bold", 22)
+    p.setFont("Sacramento", 40)
 
     # Add student name
     name_text = f"{name}"
     name_width = p.stringWidth(name_text)
     name_color = Color(0, 0, 0, alpha=0.85)  # Adjust alpha value as needed (0.5 for 50% opacity)
     p.setFillColor(name_color)
-    p.drawString((landscape(letter)[0] - name_width) / 2, 320, name_text)
+    p.drawString((landscape(letter)[0] - name_width) / 2, 315, name_text)
 
-    # Add current date
+    # Add current date 
     p.setFont("Times-Italic", 16)
     months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
     today = datetime.now()

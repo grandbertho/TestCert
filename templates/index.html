@@ -14,16 +14,16 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5 mb-4 text-center">Réclamez votre certificat</h1>
+        <h1 class="mt-5 mb-4 text-center">Obtenez votre certificat</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="{% url 'generate_pdf' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="name">Entrez votre Nom:</label>
+                        <label for="name">Nom Complet :</label>
                         <input type="text" placeholder='ex: Anne PIERRE' id="name" name="name" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Generate PDF</button>
+                    <button type="submit" class="btn btn-primary">Télécharger votre certificat</button>
                 </form>
             </div>
         </div>

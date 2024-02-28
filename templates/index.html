@@ -20,7 +20,7 @@
                 <form action="{% url 'generate_pdf' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="name">Nom Complet :</label>
+                        <label for="name"> <b>Nom Complet :</b></label>
                         <input type="text" placeholder='ex: Anne PIERRE' id="name" name="name" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Télécharger votre certificat</button>
